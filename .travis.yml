@@ -1,5 +1,6 @@
 language: python
 
+
 # Cache the pip files
 cache:
   directories:
@@ -43,8 +44,7 @@ install:
   - if [[ "$DB" = "postgresql" ]]; then pip install psycopg2; fi
 
   # Setup application
-  - if [[ "$DB" = "sqlite" ]]; then invoke create_settings --settings-path ./wger/settings.py \
-    invoke bootstrap_wger --settings-path /home/wger/wger/settings.py; fi
+  - if [[ "$DB" = "sqlite" ]]; then invoke create_settings; fi
   - if [[ "$DB" = "postgresql" ]]; then invoke create_settings --database-type postgresql; fi
 
 # Create test databases
@@ -65,4 +65,4 @@ script:
 
 
   # Code coverage
-  - coverage report 
+  - coverage report
