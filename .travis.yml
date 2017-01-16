@@ -64,4 +64,4 @@ script:
 
 
   # Code coverage
-  - coverage report
+  - coverage report 
