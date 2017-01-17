@@ -1,5 +1,7 @@
 language: python
 
+notifications:
+  slack: andela:QWeHuKMhM9B1yMuS99amqMHk
 
 # Cache the pip files
 cache:
@@ -37,10 +39,11 @@ install:
   - . $HOME/.nvm/nvm.sh
   - nvm install $TRAVIS_NODE_VERSION
   - nvm use $TRAVIS_NODE_VERSION
-
+  
   # Install requirements
   - pip install -r requirements_devel.txt
   - npm install
+  - invoke create_settings --settings-path ./wger/settings.py
   - if [[ "$DB" = "postgresql" ]]; then pip install psycopg2; fi
 
   # Setup application
