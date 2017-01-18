@@ -39,7 +39,6 @@ install:
   - . $HOME/.nvm/nvm.sh
   - nvm install $TRAVIS_NODE_VERSION
   - nvm use $TRAVIS_NODE_VERSION
-  
   # Install requirements
   - pip install -r requirements_devel.txt
   - npm install
@@ -65,7 +64,6 @@ script:
 
   # Regular application
   - coverage run --source='.' ./manage.py test
-
 
   # Code coverage
   - coverage report
